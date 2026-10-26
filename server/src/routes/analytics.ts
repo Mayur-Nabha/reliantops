@@ -8,7 +8,7 @@ const router = Router();
 // GET /api/analytics/overview
 router.get('/overview', (req: Request, res: Response) => {
   try {
-    const incidents = db.prepare('SELECT * FROM incidents ORDER BY createdAt DESC').all() as Incident[];
+    const incidents = db.prepare('SELECT * FROM incidents ORDER BY createdAt DESC').all() as unknown as Incident[];
     const overview = computeSystemMetrics(incidents);
 
     res.json({

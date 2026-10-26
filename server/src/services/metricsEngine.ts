@@ -29,6 +29,7 @@ export interface ReliabilityOverview {
 }
 
 export function computeIncidentIntervals(incident: Incident): {
+  timeToDetectMinutes: number;
   timeToAcknowledgeMinutes: number;
   timeToMitigateMinutes: number;
   timeToResolveMinutes: number;
@@ -44,6 +45,7 @@ export function computeIncidentIntervals(incident: Incident): {
   const slaTargets = getSlaTargets(incident.severity);
   const slaTargetMinutes = slaTargets.resolveMinutes;
 
+  const timeToDetectMinutes = 0; // Detection point anchor
   const timeToAcknowledgeMinutes = ack ? Math.max(0, Math.round((ack - detected) / 60000)) : 0;
   const timeToMitigateMinutes = mit ? Math.max(0, Math.round((mit - detected) / 60000)) : 0;
   const timeToResolveMinutes = incident.resolvedAt ? Math.max(0, Math.round((res - detected) / 60000)) : Math.max(0, Math.round((Date.now() - detected) / 60000));
@@ -52,6 +54,7 @@ export function computeIncidentIntervals(incident: Incident): {
   const isSlaBreached = totalDowntimeMinutes > slaTargetMinutes;
 
   return {
+    timeToDetectMinutes,
     timeToAcknowledgeMinutes,
     timeToMitigateMinutes,
     timeToResolveMinutes,

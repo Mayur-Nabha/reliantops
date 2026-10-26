@@ -38,7 +38,7 @@ router.get('/', (req: Request, res: Response) => {
     query += ` ORDER BY createdAt DESC`;
 
     const stmt = db.prepare(query);
-    const incidents = stmt.all(...params) as Incident[];
+    const incidents = stmt.all(...params) as unknown as Incident[];
 
     res.json({
       success: true,
@@ -310,9 +310,9 @@ router.patch('/:id', (req: Request, res: Response) => {
       updatedLossRate,
       calculatedLoss,
       updatedUsers,
-      acknowledgedAt,
-      mitigatedAt,
-      resolvedAt,
+      acknowledgedAt ?? null,
+      mitigatedAt ?? null,
+      resolvedAt ?? null,
       slaBreached,
       now,
       id
