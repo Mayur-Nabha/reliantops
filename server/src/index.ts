@@ -16,18 +16,15 @@ const PORT = process.env.PORT || 4000;
 // Initialize Database Schema
 initializeDatabase();
 
+import { runDatabaseSeed } from './services/seedData.js';
+
 // Auto-seed if empty on first boot
 try {
   const countRow = db.prepare('SELECT COUNT(*) as count FROM incidents').get() as { count: number };
   if (countRow.count === 0) {
     console.log('Database empty on first boot. Running automated seed...');
-    // Seed using internal function or trigger
-    const seedReq = {} as any;
-    const seedRes = {
-      json: () => {},
-      status: () => ({ json: () => {} }),
-    } as any;
-    // We can invoke the seed logic directly or via the route handler
+    runDatabaseSeed();
+    console.log('✅ Automated seed complete! 3 production incident scenarios loaded.');
   }
 } catch (e) {
   console.error('Initial check error:', e);

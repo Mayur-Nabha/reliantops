@@ -75,7 +75,9 @@ export function generatePostMortemMarkdown(incident: FullIncident): string {
   md += `## 6. Audit Trail & Approvals\n\n`;
   if (incident.auditLogs && incident.auditLogs.length > 0) {
     for (const log of incident.auditLogs) {
-      md += `- **[${new Date(log.timestamp).toUTCString()}]** \`${log.action}\` by *${log.actor}*: ${log.details}\n`;
+      const parsedTime = isNaN(Number(log.timestamp)) ? new Date(log.timestamp) : new Date(Number(log.timestamp));
+      const formatted = isNaN(parsedTime.getTime()) ? new Date().toUTCString() : parsedTime.toUTCString();
+      md += `- **[${formatted}]** \`${log.action}\` by *${log.actor}*: ${log.details}\n`;
     }
     md += `\n`;
   }
