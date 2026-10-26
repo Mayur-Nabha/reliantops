@@ -1,0 +1,19 @@
+{
+  "name": "reliantops",
+  "version": "1.0.0",
+  "description": "ReliantOps - SRE Incident Command, Root Cause Analysis & Reliability Post-Mortem Platform",
+  "private": true,
+  "scripts": {
+    "setup": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "node -e \"const { spawn } = require('child_process'); const p1 = spawn('npm', ['--prefix', 'server', 'run', 'dev'], { stdio: 'inherit', shell: true }); const p2 = spawn('npm', ['--prefix', 'client', 'run', 'dev'], { stdio: 'inherit', shell: true }); process.on('SIGINT', () => { p1.kill(); p2.kill(); process.exit(); });\"",
+    "build:client": "npm --prefix client run build",
+    "build:server": "npm --prefix server run build",
+    "build": "npm run build:client && npm run build:server",
+    "start": "node server/dist/index.js"
+  },
+  "keywords": ["sre", "devops", "incident-management", "post-mortem", "root-cause-analysis"],
+  "author": "Engineering Team",
+  "license": "MIT"
+}
