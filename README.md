@@ -265,16 +265,6 @@ PORT=4000
 NODE_ENV=production
 ```
 
----
 
-## 10. Demo Walkthrough Script (for 3–5 Minute Video)
-
-| Time | Section | What to Demonstrate & Talk Track |
-| :--- | :--- | :--- |
-| **0:00 - 0:45** | **Problem & Overview** | Introduce **ReliantOps**: Explain the challenge of production outages, subjective severity assignments, scattered timelines, and repeat outages in microservice architectures. |
-| **0:45 - 1:30** | **Workflow 1: Declare Incident & Severity Matrix** | Click **"+ Declare Incident"**. Enter a scenario (e.g. *Stripe Webhook Timeout*). Toggle the service tier (Tier 0), blast radius (84k users), and financial rate ($72k/hr). Show how the dynamic scoring engine live-calculates **P1 CRITICAL (Score: 88/100)** and sets the 60-min SLA target. Click Declare. |
-| **1:30 - 2:30** | **Workflow 2 & 3: Timeline & 5-Whys Workbench** | Open the incident. Show the **Lifecycle Status Tracker** transitioning from `INVESTIGATING` to `IDENTIFIED` to `RESOLVED`. Add a new forensic event with a phase tag. Switch to the **5-Whys Root Cause Tree** and demonstrate the iterative causal ladder down to the terminal root cause. |
-| **2:30 - 3:30** | **Workflow 4 & 5: Action Items, Export & Analytics** | Show the **Preventative Action Items** table. Change an action item to `VERIFIED (Closed-Loop)` with verification audit notes. Switch to **Post-Mortem Publication** and click **"Download .md Report"** to show the compiled executive report. Navigate to **"Reliability Analytics"** to highlight the platform health score, MTTR (60 min), and microservice matrix. |
-| **3:30 - 4:00** | **Engineering Conclusion** | Summarize the tech stack: Node.js, SQLite, React, Vite, and Tailwind CSS. Highlight that the database is self-contained with automated seeding. |
 
 
