@@ -277,31 +277,4 @@ NODE_ENV=production
 | **2:30 - 3:30** | **Workflow 4 & 5: Action Items, Export & Analytics** | Show the **Preventative Action Items** table. Change an action item to `VERIFIED (Closed-Loop)` with verification audit notes. Switch to **Post-Mortem Publication** and click **"Download .md Report"** to show the compiled executive report. Navigate to **"Reliability Analytics"** to highlight the platform health score, MTTR (60 min), and microservice matrix. |
 | **3:30 - 4:00** | **Engineering Conclusion** | Summarize the tech stack: Node.js, SQLite, React, Vite, and Tailwind CSS. Highlight that the database is self-contained with automated seeding. |
 
----
 
-## 11. Final Submission Form Details
-
-```text
-Project Name: ReliantOps - SRE Incident Command & Root Cause Post-Mortem Platform
-
-Student Name: [Your Name]
-
-Problem Statement:
-Production outages in microservice systems suffer from subjective severity classification, fragmented timeline forensics across disparate observability tools, superficial post-mortems, recurring failure modes, and slow executive reporting.
-
-GitHub Repository: [Your GitHub Repository URL]
-
-Deployed Application / Build: [Your Deployed Application URL or localhost:4000 instructions]
-
-Demo Video: [Your Demo Video URL]
-
-Tech Stack:
-React 19, TypeScript, Vite 8, Tailwind CSS, Lucide React, Express, Node.js, SQLite (node:sqlite Native Engine).
-
-Major Features:
-1. Dynamic Severity Scoring Engine (0-100 algorithm evaluating tier, blast radius, financial velocity, data loss risk).
-2. Forensic Timeline Reconstruction (phase categorization, MTTA/MTTM/MTTR interval calculations, SLA countdown).
-3. 5-Whys Root Cause Analysis Tree (iterative causal ladder with Ishikawa category classification and terminal factor derivation).
-4. Preventative Safeguard Action Tracker (prioritized corrective tasks with closed-loop SRE verification audit).
-5. Automated Post-Mortem Markdown Exporter & Reliability Analytics Dashboard (financial downtime cost modeling and microservice health matrix).
-```
